@@ -13,9 +13,7 @@ import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
@@ -34,9 +32,9 @@ public class Book {
 	@Column(nullable = false)
 	private Integer chapters;
 	@Column(nullable = false)
-	private Integer isbn;
+	private String isbn;
 	@Column(name= "publisherName",  nullable = false, unique = true)
-	private Integer publisherName;
+	private String publisherName;
 	@ManyToOne(fetch = FetchType.LAZY ,cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
 	@JoinColumn(name = "autor_id")
 	private Autor autor;
