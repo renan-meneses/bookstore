@@ -15,8 +15,11 @@
 	<name>bookstormanager</name>
 	<description>Bookstore manager project for Spring Boot</description>
 
+
 	<properties>
 		<java.version>11</java.version>
+		<org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
+
 	</properties>
 
 
@@ -24,7 +27,7 @@
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
-			<version>1.3.1.Final</version>
+			<version>${org.mapstruct.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
@@ -106,16 +109,29 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>3.8.1</version>
+				<executions>
+			        <execution>
+			            <goals>
+			                <goal>${java.version}</goal>
+			            </goals>
+			        </execution>
+			    </executions>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source> <!-- depending on your project -->
+					<target>${java.version}</target> <!-- depending on your project -->
 					<annotationProcessorPaths>
+						<path> 
+					 		<groupId>org.projectlombok</groupId>
+					 		<artifactId>lombok</artifactId>
+					 		<version>${lombok.version}</version>	
+					 	</path>
 						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct-processor</artifactId>
-							<version>1.3.1.Final</version>
+							<version>${org.mapstruct.version}</version>
 						</path>
+						<!-- other annotation processors -->
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
