@@ -4,6 +4,7 @@ package com.udemy.bookstormanager.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +31,14 @@ public class BookController {
 	{
 		return bookService.create(bookDTO);
 	}
+	/**
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
-	public BookDTO findById(Long id)
+	public BookDTO findById(@PathVariable Long id)
 	{
+//		return BookDTO;
 		return bookService.findById(id);
 	}
 }

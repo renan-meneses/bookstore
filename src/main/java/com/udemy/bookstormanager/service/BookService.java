@@ -31,12 +31,14 @@ public class BookService {
 		return MessageResponseDTO.builder().message(
 				"Book salvo com sucesso" + savedBook.getName() + 
 				" o livro tem o numero de paginas de " + savedBook.getPages() + 
-				"com id " + savedBook.getId()).build();
+				" com id " + savedBook.getId()).build();
 	}
-	public BookDTO findById(Long id)
-	{
-		Optional<Book> optionalBook = bookRepository.findById(id);
-		return bookMapper.toDTO(optionalBook.get());
+
+	public BookDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		Optional<Book> optionalBookDTO = bookRepository.findById(id);
 		
+		return bookMapper.toDTO(optionalBookDTO.get());
 	}
+
 }

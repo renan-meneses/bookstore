@@ -1,6 +1,7 @@
 package com.udemy.bookstormanager.dto;
 
 
+import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 //import javax.validation.constraints.Pattern;
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookDTO {
+	@Id
 	private Long id;
 	@NotBlank
 	@Size(max = 200)
