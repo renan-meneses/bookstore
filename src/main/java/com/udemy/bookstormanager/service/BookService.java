@@ -1,5 +1,7 @@
 package com.udemy.bookstormanager.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -31,5 +33,10 @@ public class BookService {
 				" o livro tem o numero de paginas de " + savedBook.getPages() + 
 				"com id " + savedBook.getId()).build();
 	}
-
+	public BookDTO findById(Long id)
+	{
+		Optional<Book> optionalBook = bookRepository.findById(id);
+		return bookMapper.toDTO(optionalBook.get());
+		
+	}
 }

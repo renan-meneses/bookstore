@@ -3,6 +3,7 @@ package com.udemy.bookstormanager.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,5 +29,10 @@ public class BookController {
 	public MessageResponseDTO create (@RequestBody @Validated BookDTO bookDTO) 
 	{
 		return bookService.create(bookDTO);
+	}
+	@GetMapping("/{id}")
+	public BookDTO findById(Long id)
+	{
+		return bookService.findById(id);
 	}
 }
