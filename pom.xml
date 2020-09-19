@@ -32,7 +32,6 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>6.0.2.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.el</groupId>
@@ -80,6 +79,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
@@ -101,6 +105,7 @@
 	</dependencies>
 
 	<build>
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -109,23 +114,15 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<executions>
-			        <execution>
-			            <goals>
-			                <goal>${java.version}</goal>
-			            </goals>
-			        </execution>
-			    </executions>
 				<configuration>
 					<source>${java.version}</source> <!-- depending on your project -->
 					<target>${java.version}</target> <!-- depending on your project -->
 					<annotationProcessorPaths>
-						<path> 
-					 		<groupId>org.projectlombok</groupId>
-					 		<artifactId>lombok</artifactId>
-					 		<version>${lombok.version}</version>	
-					 	</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
 						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct-processor</artifactId>
