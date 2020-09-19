@@ -9,8 +9,11 @@ import org.springframework.validation.annotation.Validated;
 import com.udemy.bookstormanager.dto.BookDTO;
 import com.udemy.bookstormanager.dto.MessageResponseDTO;
 import com.udemy.bookstormanager.entity.Book;
+import com.udemy.bookstormanager.exception.BookNotFoundException;
 import com.udemy.bookstormanager.mapper.BookMapper;
 import com.udemy.bookstormanager.repository.BookRepository;
+
+import ch.qos.logback.core.joran.conditional.ThenOrElseActionBase;
 
 @Service
 
@@ -34,11 +37,11 @@ public class BookService {
 				" com id " + savedBook.getId()).build();
 	}
 
-	public BookDTO findById(Long id) {
-		// TODO Auto-generated method stub
-		Optional<Book> optionalBookDTO = bookRepository.findById(id);
+	public BookDTO findById(Long id) throws BookNotFoundException {
+		Book book = bookRepository.findById(id)
+			.orElseThrow(() -> new BookNotFoundException(id));
 		
-		return bookMapper.toDTO(optionalBookDTO.get());
+		return bookMapper.toDTO(book);
 	}
 
 }

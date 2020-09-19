@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.udemy.bookstormanager.dto.MessageResponseDTO;
+import com.udemy.bookstormanager.exception.BookNotFoundException;
 import com.udemy.bookstormanager.dto.BookDTO;
 import com.udemy.bookstormanager.service.BookService;
 
@@ -36,9 +37,8 @@ public class BookController {
 	 * @return
 	 */
 	@GetMapping("/{id}")
-	public BookDTO findById(@PathVariable Long id)
+	public BookDTO findById(@PathVariable Long id) throws BookNotFoundException
 	{
-//		return BookDTO;
 		return bookService.findById(id);
 	}
 }
