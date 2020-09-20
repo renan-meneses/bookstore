@@ -41,7 +41,7 @@ public class BookUtils {
                 .chapters(faker.number().numberBetween(1, 20))
                 .isbn("0-596-52068-9")
                 .publisherName(faker.book().publisher())
-                .autor(createFakeBook())
+//                .autor(createFakeBook())
                 .build();
     }
 
