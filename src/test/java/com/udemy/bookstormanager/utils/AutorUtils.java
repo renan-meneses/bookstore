@@ -13,7 +13,7 @@ public class AutorUtils {
     {
         return AutorDTO.builder()
                 .id(faker.number().randomNumber())
-                .name(faker.book().Autor())
+                .name(faker.book().author())
                 .age(faker.number().numberBetween(0, 100))
                 .build();
     }
@@ -22,7 +22,7 @@ public class AutorUtils {
     {
         return Autor.builder()
                 .id(faker.number().randomNumber())
-                .name(faker.book().Autor())
+                .nome(faker.book().author())
                 .age(faker.number().numberBetween(0, 100))
                 .build();
     }
@@ -30,9 +30,9 @@ public class AutorUtils {
     public static Autor createFakeAutorFrom(AutorDTO autorDTO) 
     {
         return Autor.builder()
-                .id(AutorDTO.getId())
-                .name(AutorDTO.getName())
-                .age(AutorDTO.getAge())
+                .id(autorDTO.getId())
+                .nome(autorDTO.getName())
+                .age(autorDTO.getAge())
                 .build();
     }
 }

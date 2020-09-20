@@ -7,6 +7,8 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.github.javafaker.Faker;
 import com.udemy.bookstormanager.dto.BookDTO;
 import com.udemy.bookstormanager.entity.Book;
+import com.udemy.bookstormanager.entity.Autor;
+
 
 import static com.udemy.bookstormanager.utils.AutorUtils.createFakeAutor;
 import static com.udemy.bookstormanager.utils.AutorUtils.createFakeAutorDTO;

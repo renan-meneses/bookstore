@@ -11,18 +11,19 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AutorDTO {
+public class AutorDTO 
+{
 		
 	private Long id;
 	@NotBlank
 	@Size(max = 200)
 	private String name;
 	@NotNull
-	@Size(max=100)
 	private Integer age;
 
 }
